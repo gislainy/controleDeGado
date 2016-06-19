@@ -2,16 +2,20 @@ package db.schemas;
 
 import java.util.Calendar;
 
-public abstract class Data {
-  protected int dia;
-  protected int mes;
-  protected int ano;
+public class Data {
+  private int dia;
+  private int mes;
+  private int ano;
+  public Data(int dia, int mes, int ano){
+    this.dia = dia;
+    this.mes = mes;
+    this.ano = ano;
+  }
   public int calcularIdadeEmMeses(){
     Calendar c = Calendar.getInstance();
     int ano = c.get(Calendar.YEAR);
-    int mes = c.get(Calendar.MONTH);
+    int mes = c.get(Calendar.MONTH)+1;
     int dia = c.get(Calendar.DAY_OF_MONTH);
-    int qtdMeses;
     if(this.ano == ano){
       if(this.mes < mes){
         if((this.dia < dia) || (this.dia == dia)) {
@@ -36,4 +40,7 @@ public abstract class Data {
     }
     return 0;
   }  
+  public String toString(){
+    return dia + "/" + mes + "/" + ano;
+  }
 }
