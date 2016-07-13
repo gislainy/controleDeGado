@@ -1,8 +1,11 @@
 package tests;
 
+import db.schemas.Data;
+
 public class Vaca extends db.schemas.Matriz {
-  Vaca(db.schemas.Data idade, int status){
-    super(idade, status);
+  public Vaca(int sexo, Data dataDeNascimento, int codigo, int status) {
+    super(sexo, dataDeNascimento, codigo, status);
   }
+
 }
 
