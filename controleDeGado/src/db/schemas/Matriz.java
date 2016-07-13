@@ -10,11 +10,6 @@ public class Matriz extends Bovino {
     producaoDeLeiteList = new ArrayList<>();
     filhosList = new ArrayList<>();
   }
-
-  public Matriz(Data dataNascimento, int status) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-  
   public String getStatusText(){
     switch (this.getStatus()) {
       case 10:
