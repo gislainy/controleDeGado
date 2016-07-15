@@ -2,12 +2,12 @@ package db.schemas;
 
 import java.util.ArrayList;
 
-public abstract class TouroAntigo {
+public abstract class Touro {
   private Data idade;
   private int status;
   private ArrayList<Bezerro> filhosList = new ArrayList<Bezerro>();
   
-  TouroAntigo (Data idade, int status, ArrayList<Bezerro> filhosList){
+  Touro (Data idade, int status, ArrayList<Bezerro> filhosList){
     this.idade = idade;
     this.status = status;
     this.filhosList = filhosList;

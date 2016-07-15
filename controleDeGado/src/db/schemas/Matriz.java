@@ -4,12 +4,23 @@ import java.util.ArrayList;
 
 public class Matriz extends Bovino {
   private ArrayList<Leite> producaoDeLeiteList;
-  private ArrayList<Bezerro> filhosList;
-  public Matriz(int sexo, Data dataDeNascimento, int codigo, int status){
-    super(sexo, dataDeNascimento, codigo, status);
+  private ArrayList<Bovino> filhosList;
+
+  /**
+   *
+   * @param dataDeNascimento
+   * @param codigo
+   */
+  public Matriz(Data dataDeNascimento, int codigo){
+    super(dataDeNascimento, codigo);
     producaoDeLeiteList = new ArrayList<>();
     filhosList = new ArrayList<>();
   }
+
+  /**
+   *
+   * @return
+   */
   public String getStatusText(){
     switch (this.getStatus()) {
       case 10:
@@ -21,18 +32,27 @@ public class Matriz extends Bovino {
       case 40:
 	return "Venda";
       case 50:
-	return "Morta";
+	return "Bezerra";
+      case 60:
+      return "Morta";
       default:
 	throw new IllegalArgumentException("Status inválido");
     }
   }
-  public int getStatusEnum(){
-    return this.getStatus();
+
+  /**
+   *
+   * @param leite
+   */
+  public void adicionarProducaoDeLeite(Leite leite){
+    this.producaoDeLeiteList.add(leite);
   }
-  
-//  @Override
-//  public String toString(){
-//    return "Idade: " + idade.calcularIdadeEmMeses() + " meses - Stutus: " + status;
-//  }
-  //Doenças? Ração? 
+
+  /**
+   *
+   * @param filho
+   */
+  public void adicionarFilhos(Bovino filho){
+    this.filhosList.add(filho);
+  }
 }

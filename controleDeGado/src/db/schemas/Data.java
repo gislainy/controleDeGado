@@ -2,15 +2,31 @@ package db.schemas;
 
 import java.util.Calendar;
 
+/**
+ *
+ * @author gislainy
+ */
 public class Data {
   private int dia;
   private int mes;
   private int ano;
+
+  /**
+   *
+   * @param dia
+   * @param mes
+   * @param ano
+   */
   public Data(int dia, int mes, int ano){
     this.dia = dia;
     this.mes = mes;
     this.ano = ano;
   }
+
+  /**
+   *
+   * @return
+   */
   public int calcularIdadeEmMeses(){
     Calendar c = Calendar.getInstance();
     int ano = c.get(Calendar.YEAR);

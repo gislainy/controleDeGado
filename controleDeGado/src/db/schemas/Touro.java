@@ -3,12 +3,22 @@ package db.schemas;
 import java.util.ArrayList;
 
 public class Touro extends Bovino {
-  private int status;
-  private ArrayList<Bezerro> filhosList;
-  public Touro(int sexo, Data dataDeNascimento, int codigo, int status){
-    super(sexo, dataDeNascimento, codigo, status);
+  private ArrayList<Bovino> filhosList;
+
+  /**
+   *
+   * @param dataDeNascimento
+   * @param codigo
+   */
+  public Touro(Data dataDeNascimento, int codigo){
+    super(dataDeNascimento, codigo);
     filhosList = new ArrayList<>();
   }
+
+  /**
+   *
+   * @return
+   */
   public String getStatusText(){
     switch (this.getStatus()) {
       case 10:
@@ -24,6 +34,14 @@ public class Touro extends Bovino {
       default:
 	throw new IllegalArgumentException("Status inválido");
     }
+  }
+
+  /**
+   *
+   * @param filho
+   */
+  public void adicionarFilhos(Bovino filho){
+    this.filhosList.add(filho);
   }
   
 //  @Override
