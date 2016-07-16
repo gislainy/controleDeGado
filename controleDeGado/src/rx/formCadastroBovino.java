@@ -4,6 +4,11 @@ import db.schemas.Data;
 import db.schemas.Matriz;
 import db.schemas.Touro;
 import db.schemas.expections.mostraMensagem;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import soa.Bovino;
+import soa.soaMatriz;
 
 public class formCadastroBovino extends javax.swing.JFrame {
 
@@ -31,8 +36,9 @@ public class formCadastroBovino extends javax.swing.JFrame {
     btnCancelar = new javax.swing.JButton();
     fundo = new javax.swing.JLabel();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
     setTitle("Cadastro de Bovino");
+    setName("frameCadastroBovino"); // NOI18N
     getContentPane().setLayout(null);
 
     panelFundo.setBackground(new java.awt.Color(255, 255, 255));
@@ -90,7 +96,6 @@ public class formCadastroBovino extends javax.swing.JFrame {
     panelFundo.add(lbNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
     grupoRadioTipo.add(radioMatriz);
-    radioMatriz.setForeground(new java.awt.Color(255, 255, 255));
     radioMatriz.setText("Matriz");
     radioMatriz.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +106,6 @@ public class formCadastroBovino extends javax.swing.JFrame {
     radioMatriz.getAccessibleContext().setAccessibleName("");
 
     grupoRadioTipo.add(radioTouro);
-    radioTouro.setForeground(new java.awt.Color(255, 255, 255));
     radioTouro.setText("Touro");
     radioTouro.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +115,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
     panelFundo.add(radioTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
     radioTouro.getAccessibleContext().setAccessibleName("");
 
+    btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
     btnSalvar.setText("SALVAR");
     btnSalvar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +124,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
     });
     panelFundo.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
+    btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
     btnCancelar.setText("CANCELAR");
     btnCancelar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +176,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
     mensagem = new mostraMensagem();
     String nome = editNome.getText();
     int dia = 0, mes = 0, ano = 0, codigo = 0;
+    boolean tudoCorreto = false;
     if (editDia.getText().length() > 0 &&
 	  editMes.getText().length() > 0 &&
 	  editAno.getText().length() > 0 && 
@@ -179,20 +186,35 @@ public class formCadastroBovino extends javax.swing.JFrame {
       mes = Integer.parseInt(editMes.getText());
       ano = Integer.parseInt(editAno.getText());
       codigo = Integer.parseInt(editCodigo.getText());
+      tudoCorreto = true;
     } else {
-      mensagem.exibir("Atençao <3", "Campo obrigatório não preenchido!");
+      mensagem.exibir("Atençao", "Campo obrigatório não preenchido!");
     }
+    if(tudoCorreto){
     Data dataNascimento = new Data(dia, mes, ano);
     if (radioMatriz.isSelected()) {
-      Matriz matriz = new Matriz(dataNascimento, codigo);
+      Matriz matriz = new Matriz(nome, dataNascimento, codigo);
+      try {
+	soaMatriz soa = new soaMatriz();
+	soa.adicionar(matriz);
+      } catch (IOException ex) {
+	Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
     if (radioTouro.isSelected()) {
-      Touro touro = new Touro(dataNascimento, codigo);
+      Touro touro = new Touro(nome, dataNascimento, codigo);
+    }
+    formPrincipal principal = new formPrincipal();
+    principal.setResizable(false);
+    principal.setVisible(true);
     }
   }//GEN-LAST:event_btnSalvarActionPerformed
 
   private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
     this.setVisible(false);
+    formPrincipal principal = new formPrincipal();
+    principal.setResizable(false);
+    principal.setVisible(true);
   }//GEN-LAST:event_btnCancelarActionPerformed
 
   /**

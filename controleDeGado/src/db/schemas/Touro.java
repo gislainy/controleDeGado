@@ -1,18 +1,16 @@
 package db.schemas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Touro extends Bovino {
-  private ArrayList<Bovino> filhosList;
-
+public class Touro extends Bovino implements Serializable{
   /**
    *
    * @param dataDeNascimento
    * @param codigo
    */
-  public Touro(Data dataDeNascimento, int codigo){
-    super(dataDeNascimento, codigo);
-    filhosList = new ArrayList<>();
+  public Touro(String nome, Data dataDeNascimento, int codigo){
+    super(nome, dataDeNascimento, codigo);
   }
 
   /**
@@ -35,18 +33,4 @@ public class Touro extends Bovino {
 	throw new IllegalArgumentException("Status inválido");
     }
   }
-
-  /**
-   *
-   * @param filho
-   */
-  public void adicionarFilhos(Bovino filho){
-    this.filhosList.add(filho);
-  }
-  
-//  @Override
-//  public String toString(){
-//    return "Idade: " + idade.calcularIdadeEmMeses() + " meses - Stutus: " + status;
-//  }
-  //Doenças? Ração? 
 }

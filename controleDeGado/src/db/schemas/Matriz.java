@@ -1,20 +1,18 @@
 package db.schemas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Matriz extends Bovino {
+public class Matriz extends Bovino implements Serializable{
   private ArrayList<Leite> producaoDeLeiteList;
-  private ArrayList<Bovino> filhosList;
-
   /**
    *
    * @param dataDeNascimento
    * @param codigo
    */
-  public Matriz(Data dataDeNascimento, int codigo){
-    super(dataDeNascimento, codigo);
+  public Matriz(String nome, Data dataDeNascimento, int codigo){
+    super(nome, dataDeNascimento, codigo);
     producaoDeLeiteList = new ArrayList<>();
-    filhosList = new ArrayList<>();
   }
 
   /**
@@ -47,12 +45,9 @@ public class Matriz extends Bovino {
   public void adicionarProducaoDeLeite(Leite leite){
     this.producaoDeLeiteList.add(leite);
   }
-
-  /**
-   *
-   * @param filho
-   */
-  public void adicionarFilhos(Bovino filho){
-    this.filhosList.add(filho);
+  @Override
+  public String toString(){
+    return "Funcionou";
+    //return super.toString() + "- " + this.getSexo();
   }
 }

@@ -1,10 +1,8 @@
 package db.schemas;
 
-/**
- *
- * @author gislainy
- */
-public class Leite {
+import java.io.Serializable;
+
+public class Leite implements Serializable{
   private Data data;
   private float quantidade;
 

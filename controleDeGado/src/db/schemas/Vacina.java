@@ -1,9 +1,5 @@
 package db.schemas;
 
-/**
- *
- * @author gislainy
- */
 public class Vacina {
   private Data dataVacina;
   private String nome;

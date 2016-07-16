@@ -1,7 +1,9 @@
 package db.schemas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-public abstract class Bovino {
+public abstract class Bovino implements Serializable{
+  private String nome;
   private int sexo;
   private Data dataDeNascimento;
   private int codigo;
@@ -13,7 +15,8 @@ public abstract class Bovino {
    * @param dataDeNascimento
    * @param codigo
    */
-  public Bovino(Data dataDeNascimento, int codigo){
+  public Bovino(String nome, Data dataDeNascimento, int codigo){
+    this.nome = nome;
     this.dataDeNascimento = dataDeNascimento;
     this.codigo = codigo;
     this.vacinaList = new ArrayList<>();
@@ -71,5 +74,8 @@ public abstract class Bovino {
    */
   public void adicionarVacina(Vacina vacina){
     this.vacinaList.add(vacina);
+  }
+  public String toString(){
+    return this.getSexo() + " - " + this.codigo + " - " + this.dataDeNascimento;
   }
 }
