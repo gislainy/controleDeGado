@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Matriz extends Bovino implements Serializable{
-  private ArrayList<Leite> producaoDeLeiteList;
+  public ArrayList<Leite> producaoDeLeiteList;
   /**
    *
    * @param dataDeNascimento
    * @param codigo
    */
   public Matriz(String nome, Data dataDeNascimento, int codigo){
-    super(nome, dataDeNascimento, codigo);
+    super(nome, dataDeNascimento, codigo, 0);
     producaoDeLeiteList = new ArrayList<>();
   }
 
@@ -21,6 +21,8 @@ public class Matriz extends Bovino implements Serializable{
    */
   public String getStatusText(){
     switch (this.getStatus()) {
+      case 0:
+	return "A definir";
       case 10:
 	return "Grávida";
       case 20:
@@ -47,7 +49,13 @@ public class Matriz extends Bovino implements Serializable{
   }
   @Override
   public String toString(){
-    return "Funcionou";
-    //return super.toString() + "- " + this.getSexo();
+    return super.toString() + "  " + this.getStatusText();
+  }
+  public String mostrar(){
+    return super.toString() + "  " + this.getStatusText();
+  }
+
+  public String getLeiteItem(int i) {
+    return this.producaoDeLeiteList.get(i).getQuantidade() + "L - " + this.producaoDeLeiteList.get(i).getData();
   }
 }

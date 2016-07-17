@@ -3,7 +3,7 @@ package db.schemas.expections;
 import javax.swing.JOptionPane;
 
 public class mostraMensagem {
-  public void exibir(String titulo, String mensagem){
+  public static void exibir(String titulo, String mensagem){
     Object[] options = {"Ok","Cancelar"};
     int n = JOptionPane.showOptionDialog(null, 
       mensagem, titulo,

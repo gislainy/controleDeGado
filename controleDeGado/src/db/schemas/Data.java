@@ -54,6 +54,6 @@ public class Data implements Serializable{
     return 0;
   }  
   public String toString(){
-    return dia + "/" + mes + "/" + ano;
+    return this.dia + "/" + this.mes + "/" + this.ano;
   }
 }

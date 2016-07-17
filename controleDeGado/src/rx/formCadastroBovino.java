@@ -7,8 +7,8 @@ import db.schemas.expections.mostraMensagem;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import soa.Bovino;
 import soa.soaMatriz;
+import soa.soaTouro;
 
 public class formCadastroBovino extends javax.swing.JFrame {
 
@@ -21,19 +21,31 @@ public class formCadastroBovino extends javax.swing.JFrame {
   private void initComponents() {
 
     grupoRadioTipo = new javax.swing.ButtonGroup();
+    grupoStatusTouro = new javax.swing.ButtonGroup();
+    grupoStatusMatriz = new javax.swing.ButtonGroup();
     panelFundo = new javax.swing.JPanel();
     lbNome = new javax.swing.JLabel();
     editNome = new javax.swing.JTextField();
     lbDataNascimento1 = new javax.swing.JLabel();
+    editAno = new javax.swing.JTextField();
     editDia = new javax.swing.JTextField();
     editMes = new javax.swing.JTextField();
-    editAno = new javax.swing.JTextField();
     editCodigo = new javax.swing.JTextField();
-    lbNome1 = new javax.swing.JLabel();
+    lbSexo = new javax.swing.JLabel();
     radioMatriz = new javax.swing.JRadioButton();
     radioTouro = new javax.swing.JRadioButton();
     btnSalvar = new javax.swing.JButton();
     btnCancelar = new javax.swing.JButton();
+    lbCodigo1 = new javax.swing.JLabel();
+    lbStatus = new javax.swing.JLabel();
+    radioReprodutor = new javax.swing.JRadioButton();
+    radioVendaTouro = new javax.swing.JRadioButton();
+    radioBezerro = new javax.swing.JRadioButton();
+    radioGravida = new javax.swing.JRadioButton();
+    radioMonta = new javax.swing.JRadioButton();
+    radioBezerra = new javax.swing.JRadioButton();
+    radioVendaMatriz = new javax.swing.JRadioButton();
+    radioNovilha = new javax.swing.JRadioButton();
     fundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -61,27 +73,27 @@ public class formCadastroBovino extends javax.swing.JFrame {
     lbDataNascimento1.setText("Data Nascimento:");
     panelFundo.add(lbDataNascimento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-    editDia.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        editDiaActionPerformed(evt);
-      }
-    });
-    panelFundo.add(editDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 80, 30));
-
-    editMes.setToolTipText("");
-    editMes.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        editMesActionPerformed(evt);
-      }
-    });
-    panelFundo.add(editMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, 30));
-
     editAno.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         editAnoActionPerformed(evt);
       }
     });
-    panelFundo.add(editAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 40, 30));
+    panelFundo.add(editAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 80, 30));
+
+    editDia.setToolTipText("");
+    editDia.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editDiaActionPerformed(evt);
+      }
+    });
+    panelFundo.add(editDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, 30));
+
+    editMes.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        editMesActionPerformed(evt);
+      }
+    });
+    panelFundo.add(editMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 40, 30));
 
     editCodigo.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,125 +102,130 @@ public class formCadastroBovino extends javax.swing.JFrame {
     });
     panelFundo.add(editCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 360, 30));
 
-    lbNome1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-    lbNome1.setForeground(new java.awt.Color(255, 255, 255));
-    lbNome1.setText("Código:");
-    panelFundo.add(lbNome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+    lbSexo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+    lbSexo.setForeground(new java.awt.Color(255, 255, 255));
+    lbSexo.setText("Status");
+    panelFundo.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
     grupoRadioTipo.add(radioMatriz);
+    radioMatriz.setForeground(java.awt.Color.black);
     radioMatriz.setText("Matriz");
     radioMatriz.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         radioMatrizActionPerformed(evt);
       }
     });
-    panelFundo.add(radioMatriz, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+    panelFundo.add(radioMatriz, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
     radioMatriz.getAccessibleContext().setAccessibleName("");
 
     grupoRadioTipo.add(radioTouro);
+    radioTouro.setForeground(java.awt.Color.black);
     radioTouro.setText("Touro");
     radioTouro.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         radioTouroActionPerformed(evt);
       }
     });
-    panelFundo.add(radioTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+    panelFundo.add(radioTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
     radioTouro.getAccessibleContext().setAccessibleName("");
 
-    btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
     btnSalvar.setText("SALVAR");
     btnSalvar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         btnSalvarActionPerformed(evt);
       }
     });
-    panelFundo.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+    panelFundo.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
 
-    btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
     btnCancelar.setText("CANCELAR");
     btnCancelar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         btnCancelarActionPerformed(evt);
       }
     });
-    panelFundo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
+    panelFundo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
+
+    lbCodigo1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+    lbCodigo1.setForeground(new java.awt.Color(255, 255, 255));
+    lbCodigo1.setText("Código:");
+    panelFundo.add(lbCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+    lbStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+    lbStatus.setForeground(new java.awt.Color(255, 255, 255));
+    lbStatus.setText("Sexo");
+    panelFundo.add(lbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+    grupoStatusTouro.add(radioReprodutor);
+    radioReprodutor.setForeground(java.awt.Color.black);
+    radioReprodutor.setText("Reprodutor");
+    radioReprodutor.setToolTipText("");
+    radioReprodutor.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        radioReprodutorActionPerformed(evt);
+      }
+    });
+    panelFundo.add(radioReprodutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+    grupoStatusTouro.add(radioVendaTouro);
+    radioVendaTouro.setForeground(java.awt.Color.black);
+    radioVendaTouro.setText("Venda");
+    radioVendaTouro.setToolTipText("");
+    radioVendaTouro.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        radioVendaTouroActionPerformed(evt);
+      }
+    });
+    panelFundo.add(radioVendaTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+
+    grupoStatusTouro.add(radioBezerro);
+    radioBezerro.setForeground(java.awt.Color.black);
+    radioBezerro.setText("Bezerro");
+    radioBezerro.setToolTipText("");
+    radioBezerro.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        radioBezerroActionPerformed(evt);
+      }
+    });
+    panelFundo.add(radioBezerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+
+    grupoStatusMatriz.add(radioGravida);
+    radioGravida.setForeground(java.awt.Color.black);
+    radioGravida.setText("Grávida");
+    panelFundo.add(radioGravida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+
+    grupoStatusMatriz.add(radioMonta);
+    radioMonta.setForeground(java.awt.Color.black);
+    radioMonta.setText("Monta");
+    panelFundo.add(radioMonta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+
+    grupoStatusMatriz.add(radioBezerra);
+    radioBezerra.setForeground(java.awt.Color.black);
+    radioBezerra.setText("Bezerra");
+    panelFundo.add(radioBezerra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+
+    grupoStatusMatriz.add(radioVendaMatriz);
+    radioVendaMatriz.setForeground(java.awt.Color.black);
+    radioVendaMatriz.setText("Venda");
+    panelFundo.add(radioVendaMatriz, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+
+    grupoStatusMatriz.add(radioNovilha);
+    radioNovilha.setForeground(java.awt.Color.black);
+    radioNovilha.setText("Novilha");
+    panelFundo.add(radioNovilha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
 
     fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
-    panelFundo.add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 410, 380));
+    panelFundo.add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 600));
 
     getContentPane().add(panelFundo);
-    panelFundo.setBounds(-10, -10, 410, 390);
+    panelFundo.setBounds(-10, -10, 410, 600);
 
-    setSize(new java.awt.Dimension(400, 400));
+    setSize(new java.awt.Dimension(400, 600));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  private void editNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNomeActionPerformed
+  private void radioBezerroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBezerroActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_editNomeActionPerformed
-
-  private void editDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDiaActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_editDiaActionPerformed
-
-  private void editMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMesActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_editMesActionPerformed
-
-  private void editAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAnoActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_editAnoActionPerformed
-
-  private void editCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCodigoActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_editCodigoActionPerformed
-
-  private void radioMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMatrizActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_radioMatrizActionPerformed
-
-  private void radioTouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioTouroActionPerformed
-    // TODO add your handling code here:
-  }//GEN-LAST:event_radioTouroActionPerformed
-
-  private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-    mostraMensagem mensagem;
-    mensagem = new mostraMensagem();
-    String nome = editNome.getText();
-    int dia = 0, mes = 0, ano = 0, codigo = 0;
-    boolean tudoCorreto = false;
-    if (editDia.getText().length() > 0 &&
-	  editMes.getText().length() > 0 &&
-	  editAno.getText().length() > 0 && 
-	  editCodigo.getText().length() > 0 &&
-	  editNome.getText().length() > 0) {
-      dia = Integer.parseInt(editDia.getText());
-      mes = Integer.parseInt(editMes.getText());
-      ano = Integer.parseInt(editAno.getText());
-      codigo = Integer.parseInt(editCodigo.getText());
-      tudoCorreto = true;
-    } else {
-      mensagem.exibir("Atençao", "Campo obrigatório não preenchido!");
-    }
-    if(tudoCorreto){
-    Data dataNascimento = new Data(dia, mes, ano);
-    if (radioMatriz.isSelected()) {
-      Matriz matriz = new Matriz(nome, dataNascimento, codigo);
-      try {
-	soaMatriz soa = new soaMatriz();
-	soa.adicionar(matriz);
-      } catch (IOException ex) {
-	Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
-      }
-    }
-    if (radioTouro.isSelected()) {
-      Touro touro = new Touro(nome, dataNascimento, codigo);
-    }
-    formPrincipal principal = new formPrincipal();
-    principal.setResizable(false);
-    principal.setVisible(true);
-    }
-  }//GEN-LAST:event_btnSalvarActionPerformed
+  }//GEN-LAST:event_radioBezerroActionPerformed
 
   private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
     this.setVisible(false);
@@ -216,6 +233,106 @@ public class formCadastroBovino extends javax.swing.JFrame {
     principal.setResizable(false);
     principal.setVisible(true);
   }//GEN-LAST:event_btnCancelarActionPerformed
+
+  private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+
+    String nome = editNome.getText();
+    int dia = 0, mes = 0, ano = 0, codigo = 0;
+    boolean tudoCorreto = false;
+    if (editAno.getText().length() > 0 &&
+      editDia.getText().length() > 0 &&
+      editMes.getText().length() > 0 &&
+      editCodigo.getText().length() > 0 &&
+      editNome.getText().length() > 0) {
+      dia = Integer.parseInt(editDia.getText());
+      mes = Integer.parseInt(editMes.getText());
+      ano = Integer.parseInt(editAno.getText());
+      codigo = Integer.parseInt(editCodigo.getText());
+      tudoCorreto = true;
+    } else {
+      mostraMensagem.exibir("Atençao", "Campo obrigatório não preenchido!");
+    }
+    if(tudoCorreto){
+      Data dataNascimento = new Data(dia, mes, ano);
+      if (radioMatriz.isSelected()) {
+        Matriz matriz = new Matriz(nome, dataNascimento, codigo);
+        if(radioBezerra.isSelected())
+	  matriz.setStatus(50);
+	else if(radioVendaMatriz.isSelected())
+	  matriz.setStatus(40);
+	else if(radioGravida.isSelected())
+	  matriz.setStatus(10);
+	else if(radioMonta.isSelected())
+	  matriz.setStatus(20);
+	else if(radioNovilha.isSelected())
+	  matriz.setStatus(30);
+        try {
+          soaMatriz.adicionar(matriz);
+        } catch (IOException ex) {
+          Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      if (radioTouro.isSelected()) {
+        Touro touro = new Touro(nome, dataNascimento, codigo);
+	if(radioBezerro.isSelected())
+	  touro.setStatus(50);
+	else if(radioVendaTouro.isSelected())
+	  touro.setStatus(20);
+	else if(radioReprodutor.isSelected())
+	  touro.setStatus(10);
+	try {
+          soaTouro.adicionar(touro);
+        } catch (IOException ex) {
+          Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      }
+      mostraMensagem.exibir("", "Cadastro realizado com sucesso!");
+      editAno.setText(""); 
+      editDia.setText("");
+      editMes.setText("");
+      editCodigo.setText("");
+      editNome.setText("");
+      grupoRadioTipo.clearSelection();
+      grupoStatusTouro.clearSelection();
+      grupoStatusMatriz.clearSelection();
+    }
+  }//GEN-LAST:event_btnSalvarActionPerformed
+
+  private void radioTouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioTouroActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_radioTouroActionPerformed
+
+  private void radioMatrizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMatrizActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_radioMatrizActionPerformed
+
+  private void editCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCodigoActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_editCodigoActionPerformed
+
+  private void editMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMesActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_editMesActionPerformed
+
+  private void editDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDiaActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_editDiaActionPerformed
+
+  private void editAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAnoActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_editAnoActionPerformed
+
+  private void editNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNomeActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_editNomeActionPerformed
+
+  private void radioReprodutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioReprodutorActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_radioReprodutorActionPerformed
+
+  private void radioVendaTouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioVendaTouroActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_radioVendaTouroActionPerformed
 
   /**
    * @param args the command line arguments
@@ -260,11 +377,23 @@ public class formCadastroBovino extends javax.swing.JFrame {
   private javax.swing.JTextField editNome;
   private javax.swing.JLabel fundo;
   private javax.swing.ButtonGroup grupoRadioTipo;
+  private javax.swing.ButtonGroup grupoStatusMatriz;
+  private javax.swing.ButtonGroup grupoStatusTouro;
+  private javax.swing.JLabel lbCodigo1;
   private javax.swing.JLabel lbDataNascimento1;
   private javax.swing.JLabel lbNome;
-  private javax.swing.JLabel lbNome1;
+  private javax.swing.JLabel lbSexo;
+  private javax.swing.JLabel lbStatus;
   private javax.swing.JPanel panelFundo;
+  private javax.swing.JRadioButton radioBezerra;
+  private javax.swing.JRadioButton radioBezerro;
+  private javax.swing.JRadioButton radioGravida;
   private javax.swing.JRadioButton radioMatriz;
+  private javax.swing.JRadioButton radioMonta;
+  private javax.swing.JRadioButton radioNovilha;
+  private javax.swing.JRadioButton radioReprodutor;
   private javax.swing.JRadioButton radioTouro;
+  private javax.swing.JRadioButton radioVendaMatriz;
+  private javax.swing.JRadioButton radioVendaTouro;
   // End of variables declaration//GEN-END:variables
 }

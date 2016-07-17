@@ -31,7 +31,6 @@ public class formPrincipal extends javax.swing.JFrame {
     pFundo = new javax.swing.JPanel();
     btnCadastro = new javax.swing.JButton();
     btnRebanho = new javax.swing.JButton();
-    btnMatrizes = new javax.swing.JButton();
     btnLeite = new javax.swing.JButton();
     lbFundo = new javax.swing.JLabel();
 
@@ -66,15 +65,15 @@ public class formPrincipal extends javax.swing.JFrame {
     pFundo.add(btnRebanho);
     btnRebanho.setBounds(170, 140, 250, 35);
 
-    btnMatrizes.setBackground(new java.awt.Color(255, 255, 255));
-    btnMatrizes.setText("Matrizes");
-    pFundo.add(btnMatrizes);
-    btnMatrizes.setBounds(170, 190, 250, 35);
-
     btnLeite.setBackground(new java.awt.Color(255, 255, 255));
     btnLeite.setText("Leite");
+    btnLeite.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnLeiteActionPerformed(evt);
+      }
+    });
     pFundo.add(btnLeite);
-    btnLeite.setBounds(170, 240, 250, 35);
+    btnLeite.setBounds(170, 190, 250, 35);
 
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
@@ -109,6 +108,13 @@ public class formPrincipal extends javax.swing.JFrame {
     rebanho.setVisible(true);
     dispose();
   }//GEN-LAST:event_btnRebanhoActionPerformed
+
+  private void btnLeiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeiteActionPerformed
+    formLeite  leite = new formLeite();
+    leite.setResizable(false);
+    leite.setVisible(true);
+    dispose();
+  }//GEN-LAST:event_btnLeiteActionPerformed
 
   /**
    * @param args the command line arguments
@@ -149,7 +155,6 @@ public class formPrincipal extends javax.swing.JFrame {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btnCadastro;
   private javax.swing.JButton btnLeite;
-  private javax.swing.JButton btnMatrizes;
   private javax.swing.JButton btnRebanho;
   private javax.swing.JLabel lbFundo;
   private javax.swing.JPanel pFundo;

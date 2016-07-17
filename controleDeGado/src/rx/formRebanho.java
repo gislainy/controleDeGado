@@ -61,6 +61,11 @@ public class formRebanho extends javax.swing.JFrame {
 
     btnBezerros.setBackground(new java.awt.Color(255, 255, 255));
     btnBezerros.setText("Bezerros");
+    btnBezerros.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnBezerrosActionPerformed(evt);
+      }
+    });
     getContentPane().add(btnBezerros);
     btnBezerros.setBounds(90, 240, 250, 35);
 
@@ -93,11 +98,15 @@ public class formRebanho extends javax.swing.JFrame {
   }// </editor-fold>//GEN-END:initComponents
 
   private void btnMatrizesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatrizesActionPerformed
-
+    formMatrizesList matrizes = new formMatrizesList();
+    matrizes.setVisible(true);
+    dispose();
   }//GEN-LAST:event_btnMatrizesActionPerformed
 
   private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
-
+    formTodoList todos = new formTodoList();
+    todos.setVisible(true);
+    dispose();
   }//GEN-LAST:event_btnTodosActionPerformed
 
   private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -113,6 +122,13 @@ public class formRebanho extends javax.swing.JFrame {
     touro.setVisible(true);
     dispose();
   }//GEN-LAST:event_btnTourosActionPerformed
+
+  private void btnBezerrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBezerrosActionPerformed
+    formBezerroList bezerro = new formBezerroList();
+    bezerro.setResizable(false);
+    bezerro.setVisible(true);
+    dispose();
+  }//GEN-LAST:event_btnBezerrosActionPerformed
 
   /**
    * @param args the command line arguments

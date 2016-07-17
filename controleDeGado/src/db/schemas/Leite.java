@@ -3,15 +3,15 @@ package db.schemas;
 import java.io.Serializable;
 
 public class Leite implements Serializable{
-  private Data data;
-  private float quantidade;
+  public Data data;
+  private int quantidade;
 
   /**
    *
    * @param data
    * @param quantidade
    */
-  public Leite(Data data, float quantidade){
+  public Leite(Data data, int quantidade){
     this.data = data;
     this.quantidade = quantidade;
   }
@@ -20,7 +20,10 @@ public class Leite implements Serializable{
    *
    * @return
    */
-  public float getQuantidade(){
+  public int getQuantidade(){
     return this.quantidade;
+  }
+  public String getData(){
+    return this.data.toString();
   }
 }

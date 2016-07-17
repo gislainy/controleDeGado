@@ -5,26 +5,26 @@
  */
 package rx;
 
-import db.schemas.Touro;
+import db.schemas.Matriz;
 import db.schemas.expections.mostraMensagem;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import soa.soaTouro;
+import soa.soaMatriz;
 import util.RestaurarObjeto;
 
 /**
  *
  * @author gislainy
  */
-public class formTouroList extends javax.swing.JFrame {
+public class formMatrizesList extends javax.swing.JFrame {
 
   /**
-   * Creates new form formTouroList
+   * Creates new form formMatrizesList
    */
-  public formTouroList() {
+  public formMatrizesList() {
     initComponents();
   }
 
@@ -45,6 +45,7 @@ public class formTouroList extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+    setTitle("Listagem de matrizes");
     getContentPane().setLayout(null);
 
     Mostrar.setBackground(new java.awt.Color(255, 255, 255));
@@ -89,9 +90,23 @@ public class formTouroList extends javax.swing.JFrame {
     getContentPane().add(lbFundo);
     lbFundo.setBounds(-40, 0, 470, 380);
 
-    setSize(new java.awt.Dimension(428, 398));
+    setSize(new java.awt.Dimension(430, 399));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
+
+  private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
+    DefaultListModel model = new DefaultListModel();
+    ArrayList<Object> list;
+    list = RestaurarObjeto.restautarList("matrizes.dat");
+    for(int i=0; i<list.size(); i++){
+      Matriz texto;
+      texto = (Matriz) list.get(i);
+      model.add(model.getSize(), texto.mostrar());
+    }
+    if(model.getSize()==0)
+      model.add(model.getSize(), "Nenhuma matriz cadastrada!");
+    lista.setModel(model);
+  }//GEN-LAST:event_MostrarActionPerformed
 
   private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
     this.setVisible(false);
@@ -99,64 +114,51 @@ public class formTouroList extends javax.swing.JFrame {
     rebanho.setResizable(false);
     rebanho.setVisible(true);
     dispose();
+    
   }//GEN-LAST:event_btnVoltarActionPerformed
-
-  private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
-    DefaultListModel model = new DefaultListModel();
-    ArrayList<Object> list;
-    list = RestaurarObjeto.restautarList("touros.dat");
-    for(int i=0; i<list.size(); i++){
-      Touro texto;
-      texto = (Touro) list.get(i);
-      model.add(model.getSize(), texto.mostrar());
-    }
-    if(model.getSize()==0)
-      model.add(model.getSize(), "Nenhum touro cadastrado!");
-    lista.setModel(model);
-  }//GEN-LAST:event_MostrarActionPerformed
 
   private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
     ArrayList<Object> list;
     DefaultListModel model = new DefaultListModel();
-    list = RestaurarObjeto.restautarList("touros.dat");
+    list = RestaurarObjeto.restautarList("matrizes.dat");
     boolean tudoCorreto = false;
     int index = -1;
     if(lista.getSelectedIndex()>-1){
       index = lista.getSelectedIndex();
       tudoCorreto = true;
-    }
+    }  
     if(list.size() == 0){
       mostraMensagem.exibir("Atenção", "Pelo menos um cadastro deve existir!");
       tudoCorreto = false;
     }
     if(tudoCorreto) {
-      Touro touro;
+      Matriz matriz;
       list.remove(index);
       for(int i=0; i<=list.size()-1; i++){
-        touro = (Touro) list.get(i);
-        if(i==0)
-        try {
-          soaTouro.excluir(touro, true);
-        } catch (IOException ex) {
-          Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        else
-        try {
-          soaTouro.excluir(touro, false);
-        } catch (IOException ex) {
-          Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
-        }
+	matriz = (Matriz) list.get(i);
+	if(i==0)
+          try {
+	    soaMatriz.excluir(matriz, true);
+	} catch (IOException ex) {
+	  Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
+	}
+	else 
+	  try {
+	    soaMatriz.excluir(matriz, false);
+	} catch (IOException ex) {
+	  Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
+	}
       }
-      list = RestaurarObjeto.restautarList("touros.dat");
+      list = RestaurarObjeto.restautarList("matrizes.dat");
       for(int i=0; i<list.size(); i++){
-        Touro texto;
-        texto = (Touro) list.get(i);
-        model.add(model.getSize(), texto.mostrar());
+      Matriz texto;
+      texto = (Matriz) list.get(i);
+      model.add(model.getSize(), texto.mostrar());
       }
       if(model.getSize()==0)
-      model.add(model.getSize(), "Nenhuma touro cadastrada!");
+      model.add(model.getSize(), "Nenhuma matriz cadastrada!");
       lista.setModel(model);
-    }
+    } 
   }//GEN-LAST:event_btnExcluirActionPerformed
 
   /**
@@ -176,19 +178,20 @@ public class formTouroList extends javax.swing.JFrame {
 	}
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(formTouroList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formMatrizesList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(formTouroList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formMatrizesList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(formTouroList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formMatrizesList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(formTouroList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formMatrizesList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
     //</editor-fold>
+
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-	new formTouroList().setVisible(true);
+	new formMatrizesList().setVisible(true);
       }
     });
   }
