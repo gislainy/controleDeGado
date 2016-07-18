@@ -40,7 +40,7 @@ public class formTodoList extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-    setTitle("LIstagem de todos");
+    setTitle("Listagem do rebanho");
     getContentPane().setLayout(null);
 
     btnMostrar.setBackground(new java.awt.Color(255, 255, 255));

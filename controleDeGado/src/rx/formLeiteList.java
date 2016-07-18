@@ -42,7 +42,7 @@ public class formLeiteList extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-    setTitle("LIstagem de leite");
+    setTitle("Ver leite por matriz");
     getContentPane().setLayout(null);
 
     lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -60,7 +60,7 @@ public class formLeiteList extends javax.swing.JFrame {
       }
     });
     getContentPane().add(Mostrar);
-    Mostrar.setBounds(40, 440, 140, 25);
+    Mostrar.setBounds(50, 440, 140, 25);
 
     btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
     btnVoltar.setText("VOLTAR");
@@ -119,6 +119,8 @@ public class formLeiteList extends javax.swing.JFrame {
   }//GEN-LAST:event_btnVoltarActionPerformed
 
   private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+   
+      if(lista.getSelectedIndex() >  -1){
       DefaultListModel model = new DefaultListModel();  
       ArrayList<Object> list;
       list = RestaurarObjeto.restautarList("matrizes.dat");
@@ -131,6 +133,7 @@ public class formLeiteList extends javax.swing.JFrame {
       if(matriz.producaoDeLeiteList.isEmpty())
 	model.add(model.getSize(), "Sem produção");
       dados.setModel(model);
+      }
   }//GEN-LAST:event_btnInfoActionPerformed
 
   /**

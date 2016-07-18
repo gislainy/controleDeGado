@@ -1,5 +1,6 @@
 package db.schemas;
 
+import db.schemas.expections.argumentoDataException;
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -49,7 +50,7 @@ public class Data implements Serializable{
       }
     }
     else {
-      throw new IllegalArgumentException("Data inválida");
+      throw new argumentoDataException("Data inválida");
     }
     return 0;
   }  
