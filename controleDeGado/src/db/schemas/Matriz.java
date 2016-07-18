@@ -34,7 +34,7 @@ public class Matriz extends Bovino implements Serializable{
       case 50:
 	return "Bezerra";
       case 60:
-      return "Morta";
+	return "Lactação";
       default:
 	throw new IllegalArgumentException("Status inválido");
     }

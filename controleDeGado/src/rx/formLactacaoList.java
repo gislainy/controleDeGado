@@ -6,20 +6,25 @@
 package rx;
 
 import db.schemas.Matriz;
+import db.schemas.expections.mostraMensagem;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import soa.soaMatriz;
 import util.RestaurarObjeto;
 
 /**
  *
  * @author gislainy
  */
-public class formLeiteList extends javax.swing.JFrame {
+public class formLactacaoList extends javax.swing.JFrame {
 
   /**
-   * Creates new form formLeiteList
+   * Creates new form formLactacaoList
    */
-  public formLeiteList() {
+  public formLactacaoList() {
     initComponents();
   }
 
@@ -32,35 +37,26 @@ public class formLeiteList extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jScrollPane1 = new javax.swing.JScrollPane();
-    lista = new javax.swing.JList<>();
     Mostrar = new javax.swing.JButton();
     btnVoltar = new javax.swing.JButton();
-    jScrollPane2 = new javax.swing.JScrollPane();
-    dados = new javax.swing.JList<>();
-    btnInfo = new javax.swing.JButton();
+    jScrollPane1 = new javax.swing.JScrollPane();
+    lista = new javax.swing.JList<>();
+    btnExcluir = new javax.swing.JButton();
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-    setTitle("Ver leite por matriz");
+    setTitle("Listagem de matrizes em lactação");
     getContentPane().setLayout(null);
 
-    lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-    lista.setToolTipText("");
-    jScrollPane1.setViewportView(lista);
-
-    getContentPane().add(jScrollPane1);
-    jScrollPane1.setBounds(30, 20, 170, 410);
-
     Mostrar.setBackground(new java.awt.Color(255, 255, 255));
-    Mostrar.setText("VER MATRIZES");
+    Mostrar.setText("MOSTRAR");
     Mostrar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         MostrarActionPerformed(evt);
       }
     });
     getContentPane().add(Mostrar);
-    Mostrar.setBounds(50, 440, 140, 25);
+    Mostrar.setBounds(140, 310, 110, 25);
 
     btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
     btnVoltar.setText("VOLTAR");
@@ -70,31 +66,31 @@ public class formLeiteList extends javax.swing.JFrame {
       }
     });
     getContentPane().add(btnVoltar);
-    btnVoltar.setBounds(180, 510, 88, 25);
+    btnVoltar.setBounds(150, 340, 88, 25);
 
-    dados.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-    dados.setToolTipText("");
-    jScrollPane2.setViewportView(dados);
+    lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+    lista.setToolTipText("");
+    jScrollPane1.setViewportView(lista);
 
-    getContentPane().add(jScrollPane2);
-    jScrollPane2.setBounds(250, 20, 170, 410);
+    getContentPane().add(jScrollPane1);
+    jScrollPane1.setBounds(30, 10, 380, 290);
 
-    btnInfo.setBackground(new java.awt.Color(255, 255, 255));
-    btnInfo.setText("INFO");
-    btnInfo.addActionListener(new java.awt.event.ActionListener() {
+    btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
+    btnExcluir.setText("EXCLUIR");
+    btnExcluir.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        btnInfoActionPerformed(evt);
+        btnExcluirActionPerformed(evt);
       }
     });
-    getContentPane().add(btnInfo);
-    btnInfo.setBounds(280, 440, 110, 25);
+    getContentPane().add(btnExcluir);
+    btnExcluir.setBounds(300, 310, 110, 25);
 
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 490, 570);
+    lbFundo.setBounds(-40, 0, 480, 400);
 
-    setSize(new java.awt.Dimension(440, 573));
+    setSize(new java.awt.Dimension(446, 424));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
@@ -105,35 +101,65 @@ public class formLeiteList extends javax.swing.JFrame {
     for(int i=0; i<list.size(); i++){
       Matriz texto;
       texto = (Matriz) list.get(i);
-      model.add(model.getSize(), texto.getNome());
+      model.add(model.getSize(), texto.mostrar());
     }
+    if(model.getSize()==0)
+    model.add(model.getSize(), "Nenhuma matriz cadastrada!");
     lista.setModel(model);
   }//GEN-LAST:event_MostrarActionPerformed
 
   private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
     this.setVisible(false);
-    formLeite leite = new formLeite();
-    leite.setResizable(false);
-    leite.setVisible(true);
+    formRebanho  rebanho = new formRebanho();
+    rebanho.setResizable(false);
+    rebanho.setVisible(true);
+    dispose();
+
   }//GEN-LAST:event_btnVoltarActionPerformed
 
-  private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-   
-      if(lista.getSelectedIndex() >  -1){
-      DefaultListModel model = new DefaultListModel();  
-      ArrayList<Object> list;
-      list = RestaurarObjeto.restautarList("lactacao.dat");
-      int index = lista.getSelectedIndex();
+  private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+    ArrayList<Object> list;
+    DefaultListModel model = new DefaultListModel();
+    list = RestaurarObjeto.restautarList("lactacao.dat");
+    boolean tudoCorreto = false;
+    int index = -1;
+    if(lista.getSelectedIndex()>-1){
+      index = lista.getSelectedIndex();
+      tudoCorreto = true;
+    }
+    if(list.size() == 0){
+      mostraMensagem.exibir("Atenção", "Pelo menos um cadastro deve existir!");
+      tudoCorreto = false;
+    }
+    if(tudoCorreto) {
       Matriz matriz;
-      matriz = (Matriz) list.get(index);
-      for(int i=0; i<matriz.producaoDeLeiteList.size(); i++){
-	model.add(model.getSize(), matriz.getLeiteItem(i));
+      list.remove(index);
+      for(int i=0; i<=list.size()-1; i++){
+        matriz = (Matriz) list.get(i);
+        if(i==0)
+        try {
+          soaMatriz.excluir("lactacao.dat", matriz, true);
+        } catch (IOException ex) {
+          Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        else
+        try {
+          soaMatriz.excluir("lactacao.dat", matriz, false);
+        } catch (IOException ex) {
+          Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
+        }
       }
-      if(matriz.producaoDeLeiteList.isEmpty())
-	model.add(model.getSize(), "Sem produção");
-      dados.setModel(model);
+      list = RestaurarObjeto.restautarList("lactacao.dat");
+      for(int i=0; i<list.size(); i++){
+        Matriz texto;
+        texto = (Matriz) list.get(i);
+        model.add(model.getSize(), texto.mostrar());
       }
-  }//GEN-LAST:event_btnInfoActionPerformed
+      if(model.getSize()==0)
+      model.add(model.getSize(), "Nenhuma matriz cadastrada!");
+      lista.setModel(model);
+    }
+  }//GEN-LAST:event_btnExcluirActionPerformed
 
   /**
    * @param args the command line arguments
@@ -152,31 +178,29 @@ public class formLeiteList extends javax.swing.JFrame {
 	}
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(formLeiteList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formLactacaoList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(formLeiteList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formLactacaoList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(formLeiteList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formLactacaoList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(formLeiteList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(formLactacaoList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
     //</editor-fold>
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-	new formLeiteList().setVisible(true);
+	new formLactacaoList().setVisible(true);
       }
     });
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton Mostrar;
-  private javax.swing.JButton btnInfo;
+  private javax.swing.JButton btnExcluir;
   private javax.swing.JButton btnVoltar;
-  private javax.swing.JList<String> dados;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JScrollPane jScrollPane2;
   private javax.swing.JLabel lbFundo;
   private javax.swing.JList<String> lista;
   // End of variables declaration//GEN-END:variables

@@ -138,13 +138,13 @@ public class formMatrizesList extends javax.swing.JFrame {
 	matriz = (Matriz) list.get(i);
 	if(i==0)
           try {
-	    soaMatriz.excluir(matriz, true);
+	    soaMatriz.excluir("matrizes.dat", matriz, true);
 	} catch (IOException ex) {
 	  Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
 	}
 	else 
 	  try {
-	    soaMatriz.excluir(matriz, false);
+	    soaMatriz.excluir("matrizes.dat", matriz, false);
 	} catch (IOException ex) {
 	  Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
 	}

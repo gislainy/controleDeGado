@@ -133,11 +133,10 @@ public class formLeiteAdd extends javax.swing.JFrame {
   private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
     DefaultListModel model = new DefaultListModel();
     ArrayList<Object> list;
-    list = RestaurarObjeto.restautarList("matrizes.dat");
+    list = RestaurarObjeto.restautarList("lactacao.dat");
     for(int i=0; i<list.size(); i++){
       Matriz texto;
       texto = (Matriz) list.get(i);
-      System.out.println(texto.mostrar());
       model.add(model.getSize(), texto.getNome());
     }
     if(model.getSize() == 0 )
@@ -174,7 +173,7 @@ public class formLeiteAdd extends javax.swing.JFrame {
     if(tudoCorreto){
       Data data = new Data(dia, mes, ano);
       ArrayList<Object> list;
-      list = RestaurarObjeto.restautarList("matrizes.dat");
+      list = RestaurarObjeto.restautarList("lactacao.dat");
       int index = lista.getSelectedIndex();
       Matriz matriz;
       matriz = (Matriz) list.get(index);
@@ -184,13 +183,13 @@ public class formLeiteAdd extends javax.swing.JFrame {
 	matriz = (Matriz) list.get(i);
 	if(i==0)
           try {
-	    soaMatriz.alterar(matriz, true);
+	    soaMatriz.alterar("lactacao.dat", matriz, true);
 	} catch (IOException ex) {
 	  Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
 	}
 	else 
 	  try {
-	    soaMatriz.alterar(matriz, false);
+	    soaMatriz.alterar("lactacao.dat", matriz, false);
 	} catch (IOException ex) {
 	  Logger.getLogger(formLeiteAdd.class.getName()).log(Level.SEVERE, null, ex);
 	}

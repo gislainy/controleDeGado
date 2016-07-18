@@ -28,6 +28,7 @@ public class formRebanho extends javax.swing.JFrame {
   private void initComponents() {
 
     btnTodos = new javax.swing.JButton();
+    btnLactacao = new javax.swing.JButton();
     btnMatrizes = new javax.swing.JButton();
     btnBezerros = new javax.swing.JButton();
     btnTouros = new javax.swing.JButton();
@@ -49,6 +50,16 @@ public class formRebanho extends javax.swing.JFrame {
     getContentPane().add(btnTodos);
     btnTodos.setBounds(90, 90, 250, 35);
 
+    btnLactacao.setBackground(new java.awt.Color(255, 255, 255));
+    btnLactacao.setText("Matrizes em lactação");
+    btnLactacao.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnLactacaoActionPerformed(evt);
+      }
+    });
+    getContentPane().add(btnLactacao);
+    btnLactacao.setBounds(90, 190, 250, 35);
+
     btnMatrizes.setBackground(new java.awt.Color(255, 255, 255));
     btnMatrizes.setText("Matrizes");
     btnMatrizes.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +78,7 @@ public class formRebanho extends javax.swing.JFrame {
       }
     });
     getContentPane().add(btnBezerros);
-    btnBezerros.setBounds(90, 240, 250, 35);
+    btnBezerros.setBounds(90, 290, 250, 35);
 
     btnTouros.setBackground(new java.awt.Color(255, 255, 255));
     btnTouros.setText("Touros");
@@ -77,7 +88,7 @@ public class formRebanho extends javax.swing.JFrame {
       }
     });
     getContentPane().add(btnTouros);
-    btnTouros.setBounds(90, 190, 250, 35);
+    btnTouros.setBounds(90, 240, 250, 35);
 
     btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
     btnVoltar.setText("VOLTAR");
@@ -97,11 +108,12 @@ public class formRebanho extends javax.swing.JFrame {
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
-  private void btnMatrizesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatrizesActionPerformed
-    formMatrizesList matrizes = new formMatrizesList();
+  private void btnLactacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLactacaoActionPerformed
+    formLactacaoList matrizes;
+    matrizes = new formLactacaoList();
     matrizes.setVisible(true);
     dispose();
-  }//GEN-LAST:event_btnMatrizesActionPerformed
+  }//GEN-LAST:event_btnLactacaoActionPerformed
 
   private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
     formTodoList todos = new formTodoList();
@@ -129,6 +141,13 @@ public class formRebanho extends javax.swing.JFrame {
     bezerro.setVisible(true);
     dispose();
   }//GEN-LAST:event_btnBezerrosActionPerformed
+
+  private void btnMatrizesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatrizesActionPerformed
+    formMatrizesList matriz = new formMatrizesList();
+    matriz.setResizable(false);
+    matriz.setVisible(true);
+    dispose();
+  }//GEN-LAST:event_btnMatrizesActionPerformed
 
   /**
    * @param args the command line arguments
@@ -167,6 +186,7 @@ public class formRebanho extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btnBezerros;
+  private javax.swing.JButton btnLactacao;
   private javax.swing.JButton btnMatrizes;
   private javax.swing.JButton btnTodos;
   private javax.swing.JButton btnTouros;

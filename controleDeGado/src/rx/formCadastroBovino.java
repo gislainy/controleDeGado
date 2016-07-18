@@ -46,6 +46,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
     radioBezerra = new javax.swing.JRadioButton();
     radioVendaMatriz = new javax.swing.JRadioButton();
     radioNovilha = new javax.swing.JRadioButton();
+    radioLactacao = new javax.swing.JRadioButton();
     fundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -56,11 +57,10 @@ public class formCadastroBovino extends javax.swing.JFrame {
     panelFundo.setBackground(new java.awt.Color(255, 255, 255));
     panelFundo.setLayout(null);
 
-    lbNome.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbNome.setForeground(new java.awt.Color(255, 255, 255));
     lbNome.setText("Nome do Animal");
     panelFundo.add(lbNome);
-    lbNome.setBounds(20, 20, 101, 15);
+    lbNome.setBounds(20, 20, 150, 15);
 
     editNome.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,11 +70,10 @@ public class formCadastroBovino extends javax.swing.JFrame {
     panelFundo.add(editNome);
     editNome.setBounds(20, 40, 360, 30);
 
-    lbDataNascimento1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbDataNascimento1.setForeground(new java.awt.Color(255, 255, 255));
     lbDataNascimento1.setText("Data Nascimento:");
     panelFundo.add(lbDataNascimento1);
-    lbDataNascimento1.setBounds(20, 70, 112, 15);
+    lbDataNascimento1.setBounds(20, 70, 160, 15);
 
     editAno.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,11 +108,10 @@ public class formCadastroBovino extends javax.swing.JFrame {
     panelFundo.add(editCodigo);
     editCodigo.setBounds(20, 140, 360, 30);
 
-    lbSexo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbSexo.setForeground(new java.awt.Color(255, 255, 255));
     lbSexo.setText("Status");
     panelFundo.add(lbSexo);
-    lbSexo.setBounds(20, 230, 41, 15);
+    lbSexo.setBounds(20, 230, 90, 15);
 
     grupoRadioTipo.add(radioMatriz);
     radioMatriz.setForeground(java.awt.Color.black);
@@ -146,7 +144,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
       }
     });
     panelFundo.add(btnSalvar);
-    btnSalvar.setBounds(170, 490, 87, 25);
+    btnSalvar.setBounds(140, 490, 140, 25);
 
     btnCancelar.setText("CANCELAR");
     btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,17 +155,15 @@ public class formCadastroBovino extends javax.swing.JFrame {
     panelFundo.add(btnCancelar);
     btnCancelar.setBounds(160, 520, 105, 25);
 
-    lbCodigo1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbCodigo1.setForeground(new java.awt.Color(255, 255, 255));
     lbCodigo1.setText("Código:");
     panelFundo.add(lbCodigo1);
-    lbCodigo1.setBounds(20, 120, 47, 15);
+    lbCodigo1.setBounds(20, 120, 100, 15);
 
-    lbStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbStatus.setForeground(new java.awt.Color(255, 255, 255));
     lbStatus.setText("Sexo");
     panelFundo.add(lbStatus);
-    lbStatus.setBounds(20, 180, 30, 15);
+    lbStatus.setBounds(20, 180, 80, 15);
 
     grupoStatusTouro.add(radioReprodutor);
     radioReprodutor.setForeground(java.awt.Color.black);
@@ -221,19 +217,24 @@ public class formCadastroBovino extends javax.swing.JFrame {
     radioBezerra.setForeground(java.awt.Color.black);
     radioBezerra.setText("Bezerra");
     panelFundo.add(radioBezerra);
-    radioBezerra.setBounds(240, 360, 81, 23);
+    radioBezerra.setBounds(240, 390, 81, 23);
 
     grupoStatusMatriz.add(radioVendaMatriz);
     radioVendaMatriz.setForeground(java.awt.Color.black);
     radioVendaMatriz.setText("Venda");
     panelFundo.add(radioVendaMatriz);
-    radioVendaMatriz.setBounds(240, 330, 70, 23);
+    radioVendaMatriz.setBounds(240, 360, 70, 23);
 
     grupoStatusMatriz.add(radioNovilha);
     radioNovilha.setForeground(java.awt.Color.black);
     radioNovilha.setText("Novilha");
     panelFundo.add(radioNovilha);
-    radioNovilha.setBounds(240, 300, 77, 23);
+    radioNovilha.setBounds(240, 330, 77, 23);
+
+    grupoStatusMatriz.add(radioLactacao);
+    radioLactacao.setText("Lactação");
+    panelFundo.add(radioLactacao);
+    radioLactacao.setBounds(240, 300, 89, 23);
 
     fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     panelFundo.add(fundo);
@@ -262,6 +263,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
     String nome = editNome.getText();
     int dia = 0, mes = 0, ano = 0, codigo = 0;
     boolean tudoCorreto = false;
+    boolean ehLactacao = false;
     if (editAno.getText().length() > 0 &&
       editDia.getText().length() > 0 &&
       editMes.getText().length() > 0 &&
@@ -289,8 +291,16 @@ public class formCadastroBovino extends javax.swing.JFrame {
 	  matriz.setStatus(20);
 	else if(radioNovilha.isSelected())
 	  matriz.setStatus(30);
+	else if(radioLactacao.isSelected()) {
+	  matriz.setStatus(60);
+	  ehLactacao = true;
+	}
         try {
-          soaMatriz.adicionar(matriz);
+	  if(ehLactacao){
+	    soaMatriz.adicionar("lactacao.dat", matriz);
+	  } else {
+	    soaMatriz.adicionar("matrizes.dat", matriz);
+	  }
         } catch (IOException ex) {
           Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -411,6 +421,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
   private javax.swing.JRadioButton radioBezerra;
   private javax.swing.JRadioButton radioBezerro;
   private javax.swing.JRadioButton radioGravida;
+  private javax.swing.JRadioButton radioLactacao;
   private javax.swing.JRadioButton radioMatriz;
   private javax.swing.JRadioButton radioMonta;
   private javax.swing.JRadioButton radioNovilha;

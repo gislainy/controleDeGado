@@ -88,13 +88,19 @@ public class formTodoList extends javax.swing.JFrame {
       texto = (Matriz) list.get(i);
       model.add(model.getSize(), texto.mostrar() + " Matriz");
     }
+    list = RestaurarObjeto.restautarList("lactacao.dat");
+    for(int i=0; i<list.size(); i++){
+      Matriz texto;
+      texto = (Matriz) list.get(i);
+      model.add(model.getSize(), texto.mostrar() + " Touro");
+    }
     list = RestaurarObjeto.restautarList("touros.dat");
     for(int i=0; i<list.size(); i++){
       Touro texto;
       texto = (Touro) list.get(i);
       model.add(model.getSize(), texto.mostrar() + " Touro");
     }
-     if(model.getSize()==0)
+    if(model.getSize()==0)
       model.add(model.getSize(), "Nenhum animal cadastrado!");
     lista.setModel(model);
   }//GEN-LAST:event_btnMostrarActionPerformed
