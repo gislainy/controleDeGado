@@ -54,31 +54,35 @@ public class formCadastroBovino extends javax.swing.JFrame {
     getContentPane().setLayout(null);
 
     panelFundo.setBackground(new java.awt.Color(255, 255, 255));
-    panelFundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    panelFundo.setLayout(null);
 
     lbNome.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbNome.setForeground(new java.awt.Color(255, 255, 255));
     lbNome.setText("Nome do Animal");
-    panelFundo.add(lbNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+    panelFundo.add(lbNome);
+    lbNome.setBounds(20, 20, 101, 15);
 
     editNome.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         editNomeActionPerformed(evt);
       }
     });
-    panelFundo.add(editNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 360, 30));
+    panelFundo.add(editNome);
+    editNome.setBounds(20, 40, 360, 30);
 
     lbDataNascimento1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbDataNascimento1.setForeground(new java.awt.Color(255, 255, 255));
     lbDataNascimento1.setText("Data Nascimento:");
-    panelFundo.add(lbDataNascimento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+    panelFundo.add(lbDataNascimento1);
+    lbDataNascimento1.setBounds(20, 70, 112, 15);
 
     editAno.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         editAnoActionPerformed(evt);
       }
     });
-    panelFundo.add(editAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 80, 30));
+    panelFundo.add(editAno);
+    editAno.setBounds(100, 90, 80, 30);
 
     editDia.setToolTipText("");
     editDia.addActionListener(new java.awt.event.ActionListener() {
@@ -86,26 +90,30 @@ public class formCadastroBovino extends javax.swing.JFrame {
         editDiaActionPerformed(evt);
       }
     });
-    panelFundo.add(editDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, 30));
+    panelFundo.add(editDia);
+    editDia.setBounds(20, 90, 40, 30);
 
     editMes.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         editMesActionPerformed(evt);
       }
     });
-    panelFundo.add(editMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 40, 30));
+    panelFundo.add(editMes);
+    editMes.setBounds(60, 90, 40, 30);
 
     editCodigo.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         editCodigoActionPerformed(evt);
       }
     });
-    panelFundo.add(editCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 360, 30));
+    panelFundo.add(editCodigo);
+    editCodigo.setBounds(20, 140, 360, 30);
 
     lbSexo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbSexo.setForeground(new java.awt.Color(255, 255, 255));
     lbSexo.setText("Status");
-    panelFundo.add(lbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+    panelFundo.add(lbSexo);
+    lbSexo.setBounds(20, 230, 41, 15);
 
     grupoRadioTipo.add(radioMatriz);
     radioMatriz.setForeground(java.awt.Color.black);
@@ -115,7 +123,8 @@ public class formCadastroBovino extends javax.swing.JFrame {
         radioMatrizActionPerformed(evt);
       }
     });
-    panelFundo.add(radioMatriz, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
+    panelFundo.add(radioMatriz);
+    radioMatriz.setBounds(240, 200, 70, 23);
     radioMatriz.getAccessibleContext().setAccessibleName("");
 
     grupoRadioTipo.add(radioTouro);
@@ -126,7 +135,8 @@ public class formCadastroBovino extends javax.swing.JFrame {
         radioTouroActionPerformed(evt);
       }
     });
-    panelFundo.add(radioTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+    panelFundo.add(radioTouro);
+    radioTouro.setBounds(20, 200, 66, 23);
     radioTouro.getAccessibleContext().setAccessibleName("");
 
     btnSalvar.setText("SALVAR");
@@ -135,7 +145,8 @@ public class formCadastroBovino extends javax.swing.JFrame {
         btnSalvarActionPerformed(evt);
       }
     });
-    panelFundo.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, -1, -1));
+    panelFundo.add(btnSalvar);
+    btnSalvar.setBounds(170, 490, 87, 25);
 
     btnCancelar.setText("CANCELAR");
     btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,17 +154,20 @@ public class formCadastroBovino extends javax.swing.JFrame {
         btnCancelarActionPerformed(evt);
       }
     });
-    panelFundo.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, -1, -1));
+    panelFundo.add(btnCancelar);
+    btnCancelar.setBounds(160, 520, 105, 25);
 
     lbCodigo1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbCodigo1.setForeground(new java.awt.Color(255, 255, 255));
     lbCodigo1.setText("Código:");
-    panelFundo.add(lbCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+    panelFundo.add(lbCodigo1);
+    lbCodigo1.setBounds(20, 120, 47, 15);
 
     lbStatus.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lbStatus.setForeground(new java.awt.Color(255, 255, 255));
     lbStatus.setText("Sexo");
-    panelFundo.add(lbStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+    panelFundo.add(lbStatus);
+    lbStatus.setBounds(20, 180, 30, 15);
 
     grupoStatusTouro.add(radioReprodutor);
     radioReprodutor.setForeground(java.awt.Color.black);
@@ -164,7 +178,8 @@ public class formCadastroBovino extends javax.swing.JFrame {
         radioReprodutorActionPerformed(evt);
       }
     });
-    panelFundo.add(radioReprodutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+    panelFundo.add(radioReprodutor);
+    radioReprodutor.setBounds(20, 250, 106, 23);
 
     grupoStatusTouro.add(radioVendaTouro);
     radioVendaTouro.setForeground(java.awt.Color.black);
@@ -175,7 +190,8 @@ public class formCadastroBovino extends javax.swing.JFrame {
         radioVendaTouroActionPerformed(evt);
       }
     });
-    panelFundo.add(radioVendaTouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+    panelFundo.add(radioVendaTouro);
+    radioVendaTouro.setBounds(20, 280, 70, 23);
 
     grupoStatusTouro.add(radioBezerro);
     radioBezerro.setForeground(java.awt.Color.black);
@@ -186,35 +202,42 @@ public class formCadastroBovino extends javax.swing.JFrame {
         radioBezerroActionPerformed(evt);
       }
     });
-    panelFundo.add(radioBezerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+    panelFundo.add(radioBezerro);
+    radioBezerro.setBounds(20, 310, 81, 23);
 
     grupoStatusMatriz.add(radioGravida);
     radioGravida.setForeground(java.awt.Color.black);
     radioGravida.setText("Grávida");
-    panelFundo.add(radioGravida, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+    panelFundo.add(radioGravida);
+    radioGravida.setBounds(240, 240, 79, 23);
 
     grupoStatusMatriz.add(radioMonta);
     radioMonta.setForeground(java.awt.Color.black);
     radioMonta.setText("Monta");
-    panelFundo.add(radioMonta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+    panelFundo.add(radioMonta);
+    radioMonta.setBounds(240, 270, 70, 23);
 
     grupoStatusMatriz.add(radioBezerra);
     radioBezerra.setForeground(java.awt.Color.black);
     radioBezerra.setText("Bezerra");
-    panelFundo.add(radioBezerra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+    panelFundo.add(radioBezerra);
+    radioBezerra.setBounds(240, 360, 81, 23);
 
     grupoStatusMatriz.add(radioVendaMatriz);
     radioVendaMatriz.setForeground(java.awt.Color.black);
     radioVendaMatriz.setText("Venda");
-    panelFundo.add(radioVendaMatriz, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+    panelFundo.add(radioVendaMatriz);
+    radioVendaMatriz.setBounds(240, 330, 70, 23);
 
     grupoStatusMatriz.add(radioNovilha);
     radioNovilha.setForeground(java.awt.Color.black);
     radioNovilha.setText("Novilha");
-    panelFundo.add(radioNovilha, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
+    panelFundo.add(radioNovilha);
+    radioNovilha.setBounds(240, 300, 77, 23);
 
     fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
-    panelFundo.add(fundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 600));
+    panelFundo.add(fundo);
+    fundo.setBounds(0, 0, 410, 600);
 
     getContentPane().add(panelFundo);
     panelFundo.setBounds(-10, -10, 410, 600);
