@@ -8,7 +8,7 @@ public class RestaurarObjeto {
   public static Object restaurar(String caminho) {
     Object objeto = null;
     try {
-      FileInputStream restFile = new FileInputStream(caminho);
+      FileInputStream restFile = new FileInputStream("files/"+caminho);
       try (ObjectInputStream stream = new ObjectInputStream(restFile)) {
 	objeto = stream.readObject();
       }
@@ -20,7 +20,7 @@ public class RestaurarObjeto {
     ArrayList<Object> objectList = new ArrayList<>();
     Object objeto = null;
     try {
-      FileInputStream restFile = new FileInputStream(caminho);
+      FileInputStream restFile = new FileInputStream("files/"+caminho);
       try (ObjectInputStream stream = new ObjectInputStream(restFile)) {
 	while(true){
 	  try {
