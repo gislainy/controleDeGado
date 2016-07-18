@@ -67,7 +67,7 @@ public class formTouroList extends javax.swing.JFrame {
     getContentPane().add(btnVoltar);
     btnVoltar.setBounds(150, 340, 88, 25);
 
-    lista.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+    lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lista.setToolTipText("");
     jScrollPane1.setViewportView(lista);
 

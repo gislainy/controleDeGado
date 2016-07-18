@@ -55,7 +55,6 @@ public class formLeiteAdd extends javax.swing.JFrame {
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
     getContentPane().setLayout(null);
 
-    Mostrar.setBackground(new java.awt.Color(255, 255, 255));
     Mostrar.setText("MOSTRAR");
     Mostrar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +64,6 @@ public class formLeiteAdd extends javax.swing.JFrame {
     getContentPane().add(Mostrar);
     Mostrar.setBounds(60, 440, 110, 25);
 
-    btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
     btnVoltar.setText("VOLTAR");
     btnVoltar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +84,7 @@ public class formLeiteAdd extends javax.swing.JFrame {
     getContentPane().add(editAno);
     editAno.setBounds(310, 110, 70, 30);
 
-    lista.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+    lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lista.setToolTipText("");
     jScrollPane1.setViewportView(lista);
 
@@ -112,7 +110,6 @@ public class formLeiteAdd extends javax.swing.JFrame {
     getContentPane().add(lbData);
     lbData.setBounds(210, 20, 240, 17);
 
-    btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
     btnSalvar.setText("SALVAR");
     btnSalvar.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +138,8 @@ public class formLeiteAdd extends javax.swing.JFrame {
       System.out.println(texto.mostrar());
       model.add(model.getSize(), texto.getNome());
     }
+    if(model.getSize() == 0 )
+      model.add(model.getSize(), "Sem matriz!");
     lista.setModel(model);
   }//GEN-LAST:event_MostrarActionPerformed
 
@@ -200,58 +199,6 @@ public class formLeiteAdd extends javax.swing.JFrame {
       editAno.setText("");
       lista.clearSelection();
     }
-    /*mostraMensagem mensagem;
-    mensagem = new mostraMensagem();
-    String nome = editNome.getText();
-    int dia = 0, mes = 0, ano = 0, codigo = 0;
-    if (editDia.getText().length() > 0 &&
-      editMes.getText().length() > 0 &&
-      editAno.getText().length() > 0 &&
-      editCodigo.getText().length() > 0 &&
-      editNome.getText().length() > 0) {
-      dia = Integer.parseInt(editDia.getText());
-      mes = Integer.parseInt(editMes.getText());
-      ano = Integer.parseInt(editAno.getText());
-      codigo = Integer.parseInt(editCodigo.getText());
-      tudoCorreto = true;
-    } else {
-      mensagem.exibir("Atençao", "Campo obrigatório não preenchido!");
-    }
-    if(tudoCorreto){
-      Data dataNascimento = new Data(dia, mes, ano);
-      if (radioMatriz.isSelected()) {
-        Matriz matriz = new Matriz(nome, dataNascimento, codigo);
-        if(radioBezerra.isSelected())
-        matriz.setStatus(50);
-        else if(radioVendaMatriz.isSelected())
-        matriz.setStatus(40);
-        else if(radioGravida.isSelected())
-        matriz.setStatus(10);
-        else if(radioMonta.isSelected())
-        matriz.setStatus(20);
-        else if(radioNovilha.isSelected())
-        matriz.setStatus(30);
-        try {
-          soaMatriz.adicionar(matriz);
-        } catch (IOException ex) {
-          Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      }
-      if (radioTouro.isSelected()) {
-        Touro touro = new Touro(nome, dataNascimento, codigo);
-        if(radioBezerro.isSelected())
-        touro.setStatus(50);
-        else if(radioVendaTouro.isSelected())
-        touro.setStatus(20);
-        else if(radioReprodutor.isSelected())
-        touro.setStatus(10);
-        try {
-          soaTouro.adicionar(touro);
-        } catch (IOException ex) {
-          Logger.getLogger(formCadastroBovino.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      }
-    }*/
   }//GEN-LAST:event_btnSalvarActionPerformed
 
   /**

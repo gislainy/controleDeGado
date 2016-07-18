@@ -44,7 +44,7 @@ public class formLeiteList extends javax.swing.JFrame {
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
     getContentPane().setLayout(null);
 
-    lista.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+    lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     lista.setToolTipText("");
     jScrollPane1.setViewportView(lista);
 
@@ -71,7 +71,7 @@ public class formLeiteList extends javax.swing.JFrame {
     getContentPane().add(btnVoltar);
     btnVoltar.setBounds(180, 510, 88, 25);
 
-    dados.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+    dados.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
     dados.setToolTipText("");
     jScrollPane2.setViewportView(dados);
 

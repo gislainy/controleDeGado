@@ -1,14 +1,13 @@
 package db.schemas;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+
 public abstract class Bovino implements Serializable{
   private String nome;
   private int sexo;
   private Data dataDeNascimento;
   private int codigo;
   private int status;
-  private ArrayList<Vacina> vacinaList;
 
   /**
    *
@@ -19,7 +18,6 @@ public abstract class Bovino implements Serializable{
     this.nome = nome;
     this.dataDeNascimento = dataDeNascimento;
     this.codigo = codigo;
-    this.vacinaList = new ArrayList<>();
     this.sexo = sexo;
   }
 
@@ -77,19 +75,12 @@ public abstract class Bovino implements Serializable{
     this.status = status;
   }
 
-  /**
-   *
-   * @param vacina
-   */
-  public void adicionarVacina(Vacina vacina){
-    this.vacinaList.add(vacina);
-  }
   @Override
   public String toString(){
     return "" + this.nome + "  " + this.codigo + "  " + this.dataDeNascimento;
   }
   public String bezerro(){
-    if(this.status == 50){
+    if(this.ehBezerro()){
       return this.toString();
     }
     return " ";
