@@ -53,6 +53,8 @@ public class formLeiteAdd extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+    setTitle("Adicionar leite");
+    setAlwaysOnTop(true);
     getContentPane().setLayout(null);
 
     Mostrar.setText("MOSTRAR");
@@ -122,9 +124,9 @@ public class formLeiteAdd extends javax.swing.JFrame {
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 470, 550);
+    lbFundo.setBounds(-40, -10, 500, 570);
 
-    setSize(new java.awt.Dimension(438, 572));
+    setSize(new java.awt.Dimension(441, 580));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 

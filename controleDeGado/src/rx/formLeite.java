@@ -33,6 +33,7 @@ public class formLeite extends javax.swing.JFrame {
     fundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Leite");
     getContentPane().setLayout(null);
 
     btnTodos3.setBackground(new java.awt.Color(255, 255, 255));
@@ -67,9 +68,9 @@ public class formLeite extends javax.swing.JFrame {
 
     fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     getContentPane().add(fundo);
-    fundo.setBounds(-8, -8, 460, 450);
+    fundo.setBounds(-8, -8, 480, 480);
 
-    setSize(new java.awt.Dimension(457, 462));
+    setSize(new java.awt.Dimension(450, 458));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 

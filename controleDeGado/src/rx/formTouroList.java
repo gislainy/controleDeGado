@@ -45,6 +45,8 @@ public class formTouroList extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+    setTitle("Listagem de touros");
+    setAlwaysOnTop(true);
     getContentPane().setLayout(null);
 
     Mostrar.setBackground(new java.awt.Color(255, 255, 255));
@@ -72,7 +74,7 @@ public class formTouroList extends javax.swing.JFrame {
     jScrollPane1.setViewportView(lista);
 
     getContentPane().add(jScrollPane1);
-    jScrollPane1.setBounds(30, 10, 370, 290);
+    jScrollPane1.setBounds(30, 10, 380, 290);
 
     btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
     btnExcluir.setText("EXCLUIR");
@@ -87,9 +89,9 @@ public class formTouroList extends javax.swing.JFrame {
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 470, 380);
+    lbFundo.setBounds(-40, 0, 480, 390);
 
-    setSize(new java.awt.Dimension(428, 398));
+    setSize(new java.awt.Dimension(430, 417));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 

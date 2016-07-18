@@ -14,7 +14,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="0"/>
-    <Property name="title" type="java.lang.String" value="Cadastro de Bovino"/>
+    <Property name="title" type="java.lang.String" value="Cadastro de bovino"/>
     <Property name="name" type="java.lang.String" value="frameCadastroBovino" noResource="true"/>
   </Properties>
   <SyntheticProperties>

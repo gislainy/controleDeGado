@@ -42,6 +42,7 @@ public class formLeiteList extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+    setTitle("LIstagem de leite");
     getContentPane().setLayout(null);
 
     lista.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -91,9 +92,9 @@ public class formLeiteList extends javax.swing.JFrame {
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 470, 550);
+    lbFundo.setBounds(-40, 0, 490, 570);
 
-    setSize(new java.awt.Dimension(435, 576));
+    setSize(new java.awt.Dimension(440, 573));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 

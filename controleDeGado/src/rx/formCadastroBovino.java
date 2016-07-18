@@ -49,7 +49,7 @@ public class formCadastroBovino extends javax.swing.JFrame {
     fundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-    setTitle("Cadastro de Bovino");
+    setTitle("Cadastro de bovino");
     setName("frameCadastroBovino"); // NOI18N
     getContentPane().setLayout(null);
 

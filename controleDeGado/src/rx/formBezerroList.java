@@ -73,9 +73,9 @@ public class formBezerroList extends javax.swing.JFrame {
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 480, 390);
+    lbFundo.setBounds(-40, -10, 480, 410);
 
-    setSize(new java.awt.Dimension(441, 410));
+    setSize(new java.awt.Dimension(430, 404));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 

@@ -73,7 +73,7 @@ public class formMatrizesList extends javax.swing.JFrame {
     jScrollPane1.setViewportView(lista);
 
     getContentPane().add(jScrollPane1);
-    jScrollPane1.setBounds(30, 10, 370, 290);
+    jScrollPane1.setBounds(30, 10, 380, 290);
 
     btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
     btnExcluir.setText("EXCLUIR");
@@ -88,9 +88,9 @@ public class formMatrizesList extends javax.swing.JFrame {
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 470, 380);
+    lbFundo.setBounds(-40, 0, 480, 400);
 
-    setSize(new java.awt.Dimension(430, 399));
+    setSize(new java.awt.Dimension(440, 408));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 

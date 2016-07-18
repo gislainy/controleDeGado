@@ -35,7 +35,7 @@ public class formRebanho extends javax.swing.JFrame {
     fundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-    setTitle("Rebalho");
+    setTitle("Rebanho");
     setName("frameRebanho"); // NOI18N
     getContentPane().setLayout(null);
 

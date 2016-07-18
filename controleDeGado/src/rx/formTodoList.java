@@ -40,6 +40,7 @@ public class formTodoList extends javax.swing.JFrame {
     lbFundo = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    setTitle("LIstagem de todos");
     getContentPane().setLayout(null);
 
     btnMostrar.setBackground(new java.awt.Color(255, 255, 255));
@@ -72,9 +73,9 @@ public class formTodoList extends javax.swing.JFrame {
     lbFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rx/imagens/cadastro.jpg"))); // NOI18N
     lbFundo.setText("jLabel1");
     getContentPane().add(lbFundo);
-    lbFundo.setBounds(-40, 0, 460, 580);
+    lbFundo.setBounds(-40, 0, 470, 580);
 
-    setSize(new java.awt.Dimension(429, 606));
+    setSize(new java.awt.Dimension(425, 604));
     setLocationRelativeTo(null);
   }// </editor-fold>//GEN-END:initComponents
 
